@@ -80,6 +80,10 @@ public class Response {
         if (this.document == null) {
             throw new Exception("SAML Response could not be processed, invalid or empty SAML");
         }
+        NodeList nodeList = document.getElementsByTagName("saml2p:Response");
+        if (nodeList.getLength() == 0) {
+            throw new Exception("XML is not in SAML 2.0 format");
+        }
     }
 
     // isValid() function should be called to make basic security checks to responses.
@@ -258,6 +262,7 @@ public class Response {
 
     public String getAttribute(String name) {
         HashMap<String, ArrayList<String>> attributes = getAttributes();
+
         if (!attributes.isEmpty()) {
             ArrayList<String> attrVal = attributes.get(name);
             return attrVal == null || attrVal.size() == 0 ? null : attrVal.get(0).toString();
