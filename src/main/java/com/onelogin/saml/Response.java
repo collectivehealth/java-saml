@@ -80,10 +80,14 @@ public class Response {
         if (this.document == null) {
             throw new Exception("SAML Response could not be processed, invalid or empty SAML");
         }
-        NodeList nodeList = document.getElementsByTagName("saml2p:Response");
-        if (nodeList.getLength() == 0) {
-            throw new Exception("XML is not in SAML 2.0 format");
+        if (!hasElement("saml2p:Response") && !hasElement("samlp:Response")) {
+            throw new Exception("Cannot find Response node, not valid saml");
         }
+    }
+
+    private boolean hasElement(String tagName) {
+        NodeList nodeList = document.getElementsByTagName(tagName);
+        return nodeList.getLength() > 0;
     }
 
     // isValid() function should be called to make basic security checks to responses.
