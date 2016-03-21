@@ -77,6 +77,7 @@ public class Response {
         byte[] decodedB = base64.decode(responseStr);
         this.response = new String(decodedB);
         this.document = Utils.loadXML(this.response);
+        rootElement = document.getDocumentElement();
         if (this.document == null) {
             throw new Exception("SAML Response could not be processed, invalid or empty SAML");
         }
@@ -103,7 +104,6 @@ public class Response {
                 throw new Exception("The URL of the current host was not established");
             }
 
-            rootElement = document.getDocumentElement();
             rootElement.normalize();
 
             // Check SAML version			
@@ -294,6 +294,13 @@ public class Response {
             return null;
         }
         return attributes;
+    }
+
+    /**
+     * Get xs:Id that uniquely identifies this SAML
+     */
+    public String getId() {
+        return rootElement.getAttribute("ID");
     }
 
     /**
