@@ -267,7 +267,7 @@ public class Response {
     public String getAttribute(String name) {
         HashMap<String, ArrayList<String>> attributes = getAttributes();
 
-        if (!attributes.isEmpty()) {
+        if (attributes != null && !attributes.isEmpty()) {
             ArrayList<String> attrVal = attributes.get(name);
             return attrVal == null || attrVal.size() == 0 ? null : attrVal.get(0).toString();
         }
