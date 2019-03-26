@@ -1,3 +1,19 @@
+<!-- CH Repo Tracking Data version 1.0.2 -->
+|     Category     |         Value         |
+| ---------------: | --------------------- |
+| **Repo Status**  | deprecated |
+| **Language**     | Java          |
+| **Repo Owner**   |   |
+<!-- If you use any of the following fields, please delete "Repo Owner", above,
+     as it then becomes ambiguous.  If you add fields, please update the script
+     at walker-github-ranger. -->
+<!--
+| **Repo PoC**     | <One or more humans>  |
+| **Repo Oncall**  | <Link to PagerDuty>   |
+| **Repo Team Owner** | <Name of owning team> |
+-->
+
+
 # OneLogin's SAML Java SAML
 
 Updating from 1.0-SNAPSHOT to 1.1.2
