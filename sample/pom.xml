@@ -8,7 +8,7 @@
   <name>java-saml Sample Webapp</name>
   
   <properties>
-    <jettyVersion>9.1.0.RC2</jettyVersion>
+    <jettyVersion>9.4.20.v20190813</jettyVersion>
   </properties>
   
   <dependencies>
